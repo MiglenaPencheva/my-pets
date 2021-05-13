@@ -1,18 +1,26 @@
+import { Route, Switch } from 'react-router-dom';
+
 import Header from './components/Header/Header';
 import Footer from './components/Footer/Footer';
+import Categories from './components/Categories/Categories';
 
 import './App.css';
 
 function App() {
-  return (
-    <div className="container">
-      <Header />
+    return (
+        <div className="container">
+            <Header />
 
-      <h1>Hello</h1>
-      
-      <Footer />
-    </div>
-  );
+            <Switch>
+                <Route path="/" exact component={Categories} />
+                <Route path="/categories/:category" exact component={Categories} />
+                {/* <Route path="" component={} /> */}
+                {/* <Route path="" component={} /> */}
+            </Switch>
+
+            <Footer />
+        </div>
+    );
 }
 
 export default App;

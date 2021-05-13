@@ -1,9 +1,9 @@
-
+import style from './Header.module.css';
 
 const Header = () => {
     return (
         <header id="site-header">
-            <nav className="navbar">
+            <nav className={style.navbar}>
                 <section className="navbar-dashboard">
                     <div className="first-bar">
                         <a href="#">Dashboard</a>
@@ -22,7 +22,7 @@ const Header = () => {
                     </ul>
                 </section>
             </nav>
-        </header>  
+        </header>
     );
 };
 
