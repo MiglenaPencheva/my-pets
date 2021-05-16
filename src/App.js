@@ -1,8 +1,9 @@
-import { Route, Switch } from 'react-router-dom';
+import { Route, Switch, Redirect } from 'react-router-dom';
 
 import Header from './components/Header/Header';
 import Footer from './components/Footer/Footer';
 import Categories from './components/Categories/Categories';
+import CreatePet from './components/CreatePet/CreatePet';
 
 import './App.css';
 
@@ -14,8 +15,7 @@ function App() {
             <Switch>
                 <Route path="/" exact component={Categories} />
                 <Route path="/categories/:category" exact component={Categories} />
-                {/* <Route path="" component={} /> */}
-                {/* <Route path="" component={} /> */}
+                <Route path="/pets/create" component={CreatePet} />
             </Switch>
 
             <Footer />

@@ -1,7 +1,7 @@
 import { Component } from 'react';
-import * as petService from '../../services/petService';
+import { getAll } from '../../services/petService';
 import CategoryNavigation from './CategoryNavigation/CategoryNavigation';
-import Pet from '../Pet/Pet';
+import PetCard from '../PetCard/PetCard';
 
 class Categories extends Component {
     constructor(props) {
@@ -14,7 +14,7 @@ class Categories extends Component {
     }
 
     componentDidMount() {
-        petService.getAll()
+        getAll()
             .then(res => this.setState({ pets: res }));
     }
 
@@ -25,7 +25,7 @@ class Categories extends Component {
             return;
         }
 
-        petService.getAll(category)
+        getAll(category)
             .then(res => {
                 this.setState({ pets: res, currentCategory: category });
             });
@@ -33,14 +33,14 @@ class Categories extends Component {
 
     render() {
         return (
-            <div>
+            <div className="dashboard">
                 <h1>Dashboard</h1>
 
                 <CategoryNavigation />
 
                 <ul>
-                    {this.state.pets.map(x => 
-                        <Pet key={x.id} {...x} />
+                    {this.state.pets.map(x =>
+                        <PetCard key={x.id} {...x} />
                     )}
                 </ul>
             </div>
