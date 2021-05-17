@@ -1,5 +1,6 @@
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { pet } from '../../services/petService';
+import { getLikes } from '../../services/petService';
 
 const Pet = ({
     id,
@@ -9,13 +10,12 @@ const Pet = ({
     category,
     likes
 }) => {
-    // const [currentLikes, setCurrentLikes] = useState(likes);
+    const [currentLikes, setCurrentLikes] = useState(likes);
 
     const onPetButtonClickHander = () => {
-        pet(id, likes + 1)
+        getLikes(id, likes + 1)
             .then((result) => {
-                console.log('currentLikes');
-                // setCurrentLikes(result.likes);
+                setCurrentLikes(result.likes);
             });
     };
 
@@ -30,7 +30,7 @@ const Pet = ({
                     <i className="fas fa-heart"></i>Pet
                 </button>
                 <Link to={`/pets/details/${id}`}><button className="button">Details</button></Link>
-                <i className="fas fa-heart"></i><span>{likes}</span>
+                <i className="fas fa-heart"></i><span>{currentLikes}</span>
             </div>
         </li>
     );

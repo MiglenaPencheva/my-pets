@@ -45,7 +45,7 @@ export const update = (petId, pet) => {
     });
 };
 
-export const pet = (petId, likes) => {
+export const getLikes = (petId, likes) => {
     return fetch(`${url}/${petId}`, {
         method: 'PATCH',
         headers: {
