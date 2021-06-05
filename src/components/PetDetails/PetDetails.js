@@ -13,7 +13,7 @@ const PetDetails = ({
     }, []);
 
     const onPetButtonClickHandler = () => {
-        let newLikes = pet.likes + 1;
+        let newLikes = Number(pet.likes) + 1;
         getLikes(match.params.petId, newLikes)
             .then((updatedPet) => {
                 setPet(state => ({ ...state, likes: Number(updatedPet.likes) }))
@@ -25,7 +25,7 @@ const PetDetails = ({
             <h3>{pet.name}</h3>
             <p>Pet counter: {pet.likes}
                 <button className="button" onClick={onPetButtonClickHandler}>
-                    <i className="fas fa-heart"></i>Pet
+                    <i className="fas fa-heart">Pet</i>
                 </button>
             </p>
             <p className="img"><img src={pet.imageURL} alt="your pet here"/></p>

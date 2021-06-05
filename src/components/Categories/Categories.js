@@ -38,7 +38,7 @@ class Categories extends Component {
 
                 <CategoryNavigation />
 
-                <ul>
+                <ul className="other-pets-list">
                     {this.state.pets.map(x =>
                         <PetCard key={x.id} {...x} />
                     )}
